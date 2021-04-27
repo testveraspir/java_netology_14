@@ -27,8 +27,8 @@ class InformationTicketManagerTest {
     public void searchOneTicket() {
         InformationTicketManager manager = new InformationTicketManager(repository);
         InformationTicket[] returned = new InformationTicket[]{ticket1, ticket2, ticket3, ticket4};
-        doReturn(returned).when(repository).findAll();
-        InformationTicket[] actual = manager.searchByAirport("ABC", "ABL");
+        doReturn(returned).when(repository).searchAll();
+        InformationTicket[] actual = manager.findAll("ABC", "ABL");
         Arrays.sort(actual);
         InformationTicket[] expected = new InformationTicket[]{ticket4};
         assertArrayEquals(expected, actual);
@@ -38,8 +38,8 @@ class InformationTicketManagerTest {
     public void searchAndSortByTickets() {
         InformationTicketManager manager = new InformationTicketManager(repository);
         InformationTicket[] returned = new InformationTicket[]{ticket1, ticket2, ticket3, ticket4};
-        doReturn(returned).when(repository).findAll();
-        InformationTicket[] actual = manager.searchByAirport("ABC", "ABD");
+        doReturn(returned).when(repository).searchAll();
+        InformationTicket[] actual = manager.findAll("ABC", "ABD");
         Arrays.sort(actual);
         InformationTicket[] expected = new InformationTicket[]{ticket2, ticket3, ticket1};
         assertArrayEquals(expected, actual);
@@ -49,8 +49,8 @@ class InformationTicketManagerTest {
     public void searchAndSortNoExistsTicket() {
         InformationTicketManager manager = new InformationTicketManager(repository);
         InformationTicket[] returned = new InformationTicket[]{ticket1, ticket2, ticket3, ticket4};
-        doReturn(returned).when(repository).findAll();
-        InformationTicket[] actual = manager.searchByAirport("ABL", "ABD");
+        doReturn(returned).when(repository).searchAll();
+        InformationTicket[] actual = manager.findAll("ABL", "ABD");
         Arrays.sort(actual);
         InformationTicket[] expected = new InformationTicket[]{};
         assertArrayEquals(expected, actual);

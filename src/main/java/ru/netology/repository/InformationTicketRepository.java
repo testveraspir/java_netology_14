@@ -8,7 +8,7 @@ public class InformationTicketRepository {
     private InformationTicket[] informationTickets = new InformationTicket[0];
 
 
-    public InformationTicket[] findAll() {
+    public InformationTicket[] searchAll() {
         return informationTickets;
     }
 

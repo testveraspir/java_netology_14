@@ -12,8 +12,8 @@ public class InformationTicketManager {
         this.repository = repository;
     }
 
-    public InformationTicket[] searchByAirport(String from, String to) {
-        InformationTicket[] tickets = repository.findAll();
+    public InformationTicket[] findAll(String from, String to) {
+        InformationTicket[] tickets = repository.searchAll();
         int count = 0;
         for (InformationTicket ticket : tickets) {
             if (from.equalsIgnoreCase(ticket.getDepartureAirport()) && to.equalsIgnoreCase(ticket.getArrivalAirport()))
