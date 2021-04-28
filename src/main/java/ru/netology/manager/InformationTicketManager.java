@@ -3,16 +3,16 @@ package ru.netology.manager;
 import ru.netology.domain.InformationTicket;
 import ru.netology.repository.InformationTicketRepository;
 
+import java.util.Comparator;
+
 public class InformationTicketManager {
     private InformationTicketRepository repository;
-    private String from;
-    private String to;
 
     public InformationTicketManager(InformationTicketRepository repository) {
         this.repository = repository;
     }
 
-    public InformationTicket[] findAll(String from, String to) {
+    public InformationTicket[] findAll(String from, String to, Comparator<InformationTicket> comparator) {
         InformationTicket[] tickets = repository.searchAll();
         int count = 0;
         for (InformationTicket ticket : tickets) {
